@@ -1,6 +1,15 @@
-# TODO : Your Project Name
+# MissSecret
 
-TODO : Please provide a detailed project description.
+1. what is the proposed name for your Web Application?
+    - MissSecret
+2. Who is the target audience for your Web Application?
+    - Single men and women having hard time to find a perfect match in the modern world.
+3. What problem is it intended to solve for the target audience?
+    - In modern socety, people are either too aggressive or rash while building up a close relationship with others, which always results in bad dating experience and waste of time. Traditional model of dating apps is becoming boring and sometimes annoying due to the failure of visitor management and privacy protection. I will provide a way to help people better understand each other even before they chat online. Users will have complete control of his privacy.
+4. How will it meet the minimum project requirement?
+    - Most of the content of my site will be accessible without a login. Visitors will be able to view the avatars and the main page. A login or account creation will be required if they want to interact with other users. OAuth2 authentication is supported for users want to connect with other social accounts. Users will have access to other's personal information only when others give out the permission. Public data will be accessibe through RESTful services. All RESTful service will data in both JSON and XML formats.
+5. Why is your proposed Web Application unique or creative beyond simply meeting the minimum requirements?
+    - My site will allow users to post a series of customized question based on their own interest, and they can determine which user could gain the access to their personal files based on the answers. Since men is more aggressive than women in building a relationship, the interactive experience will be totally different. Female user will tend to make up puzzels, while male users will tend to solve them. I'll track site usage and interaction with others by posting the most interesting puzzels made by users.
 
 ## Build status
 
@@ -8,7 +17,7 @@ TODO : Please provide a detailed project description.
 
 ## Web Site
 
-[Jin's Web](https://jin-first-2017.herokuapp.com)
+[MissSecret](https://jin-first-2017.herokuapp.com)
 
 ## Key Features
 
