@@ -11,13 +11,13 @@
 5. Why is your proposed Web Application unique or creative beyond simply meeting the minimum requirements?
     - My site will allow users to post a series of customized question based on their own interest, and they can determine which user could gain the access to their personal files based on the answers. Since men is more aggressive than women in building a relationship, the interactive experience will be totally different. Female user will tend to make up puzzels, while male users will tend to solve them. I'll track site usage and interaction with others by posting the most interesting puzzels made by users.
 
-## Build status
+## Build Status
 
 [![Build Status](https://travis-ci.org/infsci2560sp17/full-stack-web-DukeCode.svg?branch=master)](https://travis-ci.org/infsci2560sp17/full-stack-web-DukeCode)
 
-## Changelog
+## Change Log
 
-[Changelog](CHANGELOG.md)
+[Change Log](CHANGELOG.md)
 
 ## Web Site
 
