@@ -15,6 +15,10 @@
 
 [![Build Status](https://travis-ci.org/infsci2560sp17/full-stack-web-DukeCode.svg?branch=master)](https://travis-ci.org/infsci2560sp17/full-stack-web-DukeCode)
 
+## Changelog
+
+[Changelog](CHANGELOG.md)
+
 ## Web Site
 
 [MissSecret](https://jin-first-2017.herokuapp.com)
