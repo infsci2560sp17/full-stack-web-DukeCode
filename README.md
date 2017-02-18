@@ -44,19 +44,18 @@ TODO : please provide a description of your landing page inluding a screen shot 
 TODO : please provide a description of at least 1 user input form including a screen shot ![](https://.../image.jpg)
 
 ## API
-@Controller
-public class AccountsController {
+
+    @Controller
+    public class AccountsController {
     @RequestMapping(value = "accounts", method = RequestMethod.GET)
     public ModelAndView index() {
-        return new ModelAndView("accounts", "accounts", repository.findAll());
-    }
-
+        return new ModelAndView("accounts", "accounts", repository.findAll());}
     @RequestMapping(value = "accounts/add", method = RequestMethod.POST, consumes="application/x-www-form-urlencoded", produces = "application/json")
     public ModelAndView create(@ModelAttribute @Valid Account account, BindingResult result) {
         repository.save(account);
-        return new ModelAndView("accounts", "accounts", repository.findAll());
+        return new ModelAndView("accounts", "accounts", repository.findAll());}
     }
-}
+
 
 ### API Method 1
 
