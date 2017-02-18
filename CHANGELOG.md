@@ -3,7 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Change Log](http://keepachangelog.com/).
 
-## [v1.3]
+## [unreleased]
+### Added
+
+## [v1.3] - 2017-02-18
 ### Added
 - Create Entity "Account"
 - Create Repository "AccountRepository"
