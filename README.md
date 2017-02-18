@@ -1,15 +1,17 @@
-# MissSecret
+# BBanker
 
 1. what is the proposed name for your Web Application?
-    - MissSecret
+    - BBanker
 2. Who is the target audience for your Web Application?
-    - Single men and women having hard time to find a perfect match in the modern world.
+    - People who wants to manage their property efficiently and protect their money from potential financial risks.
 3. What problem is it intended to solve for the target audience?
-    - In modern socety, people are either too aggressive or rash while building up a close relationship with others, which always results in bad dating experience and waste of time. Traditional model of dating apps is becoming boring and sometimes annoying due to the failure of visitor management and privacy protection. I will provide a way to help people better understand each other even before they chat online. Users will have complete control of his privacy.
+    - In modern society, money has become one of the key standards to evaluate people's success. Under this situation, people cares more about the safety and increasement of their property than before. There are a lot of property management applications, however, most of them only focused on providing account information and failed to provide some tips on how to better manage the property. This application will combine account information with statistical analysis on current property, therefore provide specific plans to help customers to better manage their property and protect their property from potential financial risks. Also, a forum will be provided for people to communicate with each other.  
 4. How will it meet the minimum project requirement?
-    - Most of the content of my site will be accessible without a login. Visitors will be able to view the avatars and the main page. A login or account creation will be required if they want to interact with other users. OAuth2 authentication is supported for users want to connect with other social accounts. Users will have access to other's personal information only when others give out the permission. Public data will be accessibe through RESTful services. All RESTful service will data in both JSON and XML formats.
+    - This website will use freemium model. News and property management tips is free accessible. A login or account creation will be required to manage personal property in the application, also to communicate with professionals and others. These data will be stored in my database. OAuth2 authentication is supported for users want to connect with other social accounts. Public data will be accessibe through RESTful services. All RESTful service will data in both JSON and XML formats.
 5. Why is your proposed Web Application unique or creative beyond simply meeting the minimum requirements?
-    - My site will allow users to post a series of customized question based on their own interest, and they can determine which user could gain the access to their personal files based on the answers. Since men is more aggressive than women in building a relationship, the interactive experience will be totally different. Female user will tend to make up puzzels, while male users will tend to solve them. I'll track site usage and interaction with others by posting the most interesting puzzels made by users.
+    - My site will customize the experience of property management.
+     I'll track site usage, interactions with others, and content viewed to provide a customized experience. I will also keep posting instance of how famous bankers manage their own property.
+     Through this application, people can compare the amount and increasement of their property with each other through a ranking system.
 
 ## Build Status
 
@@ -21,7 +23,7 @@
 
 ## Web Site
 
-[MissSecret](https://jin-first-2017.herokuapp.com)
+[BBanker](https://jin-first-2017.herokuapp.com)
 
 ## Key Features
 
@@ -42,60 +44,64 @@ TODO : please provide a description of your landing page inluding a screen shot 
 TODO : please provide a description of at least 1 user input form including a screen shot ![](https://.../image.jpg)
 
 ## API
+@Controller
+public class AccountsController {
+    @RequestMapping(value = "accounts", method = RequestMethod.GET)
+    public ModelAndView index() {
+        return new ModelAndView("accounts", "accounts", repository.findAll());
+    }
 
-TODO : please provide a description of at least 1 API including a sample of request data and response data in both XML and JSON format.
+    @RequestMapping(value = "accounts/add", method = RequestMethod.POST, consumes="application/x-www-form-urlencoded", produces = "application/json")
+    public ModelAndView create(@ModelAttribute @Valid Account account, BindingResult result) {
+        repository.save(account);
+        return new ModelAndView("accounts", "accounts", repository.findAll());
+    }
+}
 
 ### API Method 1
 
-    POST photos/:id/tags
+    GET accounts
 
 #### Parameters
 
-- **id** _(required)_ — The Photo ID to add tags for.
-- **tags** _(required)_ — Comma separated tags.
+- **accounts** _(required)_ — Existed list of accounts.
 
 #### Response
 
-A JSON or XMLobject containing the PhotoID and list of tags accepted.
+A JSON or XMLobject containing a list of existed account ID and accounts.
+
+### API Method 2
+
+    POST accounts/add
+
+#### Parameters
+
+- **id** _(required)_ — The account ID of new account.
+- **amount** _(required)_ — The amount in dollars of new account.
+- **provider** _(required)_ — The provider of new account.
+- **accountType** _(required)_ — The accountType of new account.
+
+#### Response
+
+A JSON or XMLobject containing a list of existed account info and new account.
 
 #### Errors
 
 All known errors cause the resource to return HTTP error code header together with a JSON array containing at least 'status' and 'error' keys describing the source of error.
 
-- **404 Not Found** — The photo was not found.
+- **404 Not Found** — 
 
 #### Example
 
 ##### Request
 
-    POST /v1/photos/123456/tags
-
 ##### Body
-
-    tags=cute,puppy
-
 
 ##### JSON Response
 
-```json
-{
-    "photoId": 123456,
-    "tags": ["cute", "puppy"]
-}
-```
-
 ##### XML Response
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<PhotoTags>
-    <photoId>123456</PhotoId>
-        <tags>
-            <tag>cute</tag>
-            <tag>puppy</tag>
-        </tags>
-</PhotoTags>
-```
+
 
 ## Technologies Used
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Property Overview</title>
+    </head>
+    <body>
+        <h1 data-th-inline="text">[[${#httpServletRequest.remoteUser}]]'s Property</h1>
+
+        <div>
+            <table style="border: 1px solid black">
+                <tr>
+                    <th>ID</th>
+                    <th>Amount</th>
+                    <th>Provider</th>
+                    <th>Type</th>
+                </tr>
+                <tr data-th-each="account : ${accounts}">
+                    <td data-th-text="${account.id}"></td>
+                    <td>$<span data-th-text="${#numbers.formatDecimal(account.amount, 1, 2)}"></span></td>
+                    <td data-th-text="${account.provider}"></td>
+                    <td data-th-text="${account.accountType}"></td>
+                </tr>
+            </table>
+        </div>
+
+        <hr />
+        New Property<br />
+        <form data-th-action="@{/accounts/add}" name="addAccountForm" method="post">
+            Amount: <input type="number" name="title" /><br />
+            Provider: <input type="text" name="title" /><br />
+            Account Type:<br />
+            <input type="radio" name="accountType" value="Unknown" checked="checked" /> Unknown<br />
+            <input type="radio" name="accountType" value="Deposit" /> Deposit<br />
+            <input type="radio" name="accountType" value="Check" /> Check<br />
+            <input type="radio" name="accountType" value="Cash" /> Cash<br />
+            <input type="radio" name="accountType" value="Loan" /> Loan<br />
+            <input type="radio" name="accountType" value="Stock" /> Stock<br />
+            <input type="submit" value="Add Property"/>
+        </form>
+
+        <hr />
+        <form data-th-action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </body>
+</html>
