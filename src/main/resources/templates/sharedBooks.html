@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Property Overview</title>
+    </head>
+    <body>
+        <h1 data-th-inline="text">[[${#httpServletRequest.remoteUser}]]'s Books</h1>
+
+        <div>
+            <table style="border: 1px solid black">
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Version</th>
+                    <th>Book Status</th>
+                </tr>
+                <tr data-th-each="sharedBook : ${allSharedBooks}">
+                    <td data-th-text="${sharedBook.id}"></td>
+                    <td data-th-text="${sharedBook.title}"></td>
+                    <td data-th-text="${sharedBook.author}"></td>
+                    <td data-th-text="${sharedBook.version}"></td>
+                    <td data-th-text="${sharedBook.bookStatus}"></td>
+                </tr>
+            </table>
+        </div>
+
+        <hr />
+        New Book<br />
+        <form data-th-action="@{/allSharedBooks/add}" name="addSharedBookForm" method="post">
+            Title: <input type="text" name="title" /><br />
+            Author: <input type="text" name="author" /><br />
+            Version: <input type="text" name="version" /><br />
+            Book Status:<br />
+            <input type="radio" name="bookStatus" value="Available" checked="checked" /> Available<br />
+            <input type="radio" name="bookStatus" value="Exchanged" /> Exchanged<br />
+            <input type="radio" name="bookStatus" value="NotFinishYet" /> NotFinishYet<br />
+            <input type="submit" value="Add Book"/>
+        </form>
+
+        <hr />
+            <a data-th-href="@{/accounts}">Go Back</a>
+        <hr />
+
+        <hr />
+            <a data-th-href="@{/files}">Upload a File</a>
+        <hr />
+
+        <hr />
+        <form data-th-action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </body>
+</html>

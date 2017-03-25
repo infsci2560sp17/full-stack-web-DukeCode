@@ -24,24 +24,24 @@
 ## Web Site
 
 [BBanker](https://jin-first-2017.herokuapp.com)
+![](https://github.com/infsci2560sp17/full-stack-web-DukeCode/blob/master/src/main/resources/static/images/logo.png)
 
 ## Key Features
 
-TODO : Please list key features of your project.
-
-* Key Feature 1
-* Key Feature 2
-* Key Feature N
+* Property Management System: provide online property management database.
+* Strategy Consultant: provide customized investment consultant based on customer's current financial situation.
+* Book Exchanging System: allow people to post and exchange financial books through forum.
+* Financial Forum: a place for people to publish their own financial analysis and book comments.
 
 ## Project Details
 
 ### Landing Page
 
-TODO : please provide a description of your landing page inluding a screen shot ![](https://.../image.JPG)
+![](https://github.com/infsci2560sp17/full-stack-web-DukeCode/blob/master/src/main/resources/static/images/screenshot1.png)
 
 ### User Input Form
 
-TODO : please provide a description of at least 1 user input form including a screen shot ![](https://.../image.jpg)
+![](https://github.com/infsci2560sp17/full-stack-web-DukeCode/blob/master/src/main/resources/static/images/screenshot2.png)
 
 ## API
 
@@ -104,8 +104,10 @@ All known errors cause the resource to return HTTP error code header together wi
 
 ## Technologies Used
 
-TODO : List all technologies used in your project
-
 - [Spring Boot](https://projects.spring.io/spring-boot/) - Takes an opinionated view of building production-ready Spring applications.
 - [Thymleaf](http://www.thymeleaf.org/) - Thymeleaf is a modern server-side Java template engine for both web and standalone environments.
 - [Maven](https://maven.apache.org/) - Apache Maven is a software project management and comprehension tool.
+- [BootStrap](http://getbootstrap.com) - BootStrap is a popular front-end framework.
+- [BootStrap-Social] - BootStrap-Social is a CSS style based on BootStrap to provide customized social button styles.
+- [Font-Awesome](http://fontawesome.io) - Similar to BootStrap-Social, Font-Awesome is based on Bootstrap and CSS to provide customized social button styles.
+- [tailorbrands.com](https://www.tailorbrands.com/) - tailorbrands.com is an online logo maker website which provides customized logo design.

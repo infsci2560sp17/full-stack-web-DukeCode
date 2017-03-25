@@ -6,6 +6,18 @@ The format is based on [Keep a Change Log](http://keepachangelog.com/).
 ## [unreleased]
 ### Added
 
+## [v1.4] - 2017-03-25
+### Added
+- Create 5 more entities.
+- Create correspond respositories, controllers, service for new entities.
+- 4 new html templates were rendered based on new entities.
+- MVC config modified for new model and views.
+- Starting using bootstrap, bootstrap-social, font awesome and customized css files to do the style for home page.
+- Web security configure modified.
+- Logo was designed for the company.
+- Screenshots added.
+- FileUpload feature added.
+
 ## [v1.3] - 2017-02-18
 ### Added
 - Create Entity "Account"
@@ -32,7 +44,8 @@ The format is based on [Keep a Change Log](http://keepachangelog.com/).
 - Configured developer workspace.
 - Deployed to Heroku.
 
-[unreleased]: https://github.com/infsci2560sp17/full-stack-web-DukeCode/compare/v1.3...head
+[unreleased]: https://github.com/infsci2560sp17/full-stack-web-DukeCode/compare/v1.4...head
+[v1.4]: https://github.com/infsci2560sp17/full-stack-web-DukeCode/compare/v1.3...v1.4
 [v1.3]: https://github.com/infsci2560sp17/full-stack-web-DukeCode/compare/v1.2...v1.3
 [v1.2]: https://github.com/infsci2560sp17/full-stack-web-DukeCode/compare/v1.1...v1.2
 [v1.1]: https://github.com/infsci2560sp17/full-stack-web-DukeCode/compare/...v1.1

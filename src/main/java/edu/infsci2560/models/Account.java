@@ -20,10 +20,11 @@ public class Account {
     public enum AccountType {
         Unknown,
         Deposit,
-        Check,
         Cash,
         Loan,
         Stock,
+        PreciousMetal,
+        RealEstate,
     }
 
     @Id

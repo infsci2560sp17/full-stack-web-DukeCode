@@ -31,12 +31,21 @@
             Account Type:<br />
             <input type="radio" name="accountType" value="Unknown" checked="checked" /> Unknown<br />
             <input type="radio" name="accountType" value="Deposit" /> Deposit<br />
-            <input type="radio" name="accountType" value="Check" /> Check<br />
             <input type="radio" name="accountType" value="Cash" /> Cash<br />
             <input type="radio" name="accountType" value="Loan" /> Loan<br />
             <input type="radio" name="accountType" value="Stock" /> Stock<br />
+            <input type="radio" name="accountType" value="PreciousMetal" /> Precious Metal<br />
+            <input type="radio" name="accountType" value="RealEstate" /> Real Estate<br />
             <input type="submit" value="Add Property"/>
         </form>
+
+        <hr />
+            <a data-th-href="@{/books}">Check Your Books</a>
+        <hr />
+
+        <hr />
+            <a data-th-href="@{/files}">Upload a File</a>
+        <hr />
 
         <hr />
         <form data-th-action="@{/logout}" method="post">

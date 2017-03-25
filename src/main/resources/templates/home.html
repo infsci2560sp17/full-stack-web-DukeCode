@@ -2,11 +2,115 @@
 <html>
     <head>
         <title>BBanker</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" data-th-href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" />
+        <script data-th-src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js}"></script>
+        <script data-th-src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+        <link rel="stylesheet" data-th-href="@{/css/home.css}" />
+        <link rel="stylesheet" data-th-href="@{/css/font-awesome.min.css}" />
+        <link rel="stylesheet" data-th-href="@{/css/bootstrap-social.css}" />
     </head>
     <body>
-        <h1>BBanker</h1>
-        <p>since 2017</p>
-        <p>In BBanker, we redefined the way of managing personal property.</p>
-        <p><a data-th-href="@{/accounts}">Enter BBanker</a></p>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" data-th-href="@{/home}">BBanker</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a data-th-href="@{/home}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                    <li><a data-th-href="@{/accounts}">About BBanker</a></li>
+                    <li class="dropdown">
+                        <a data-th-href="@{/accounts}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Menu <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">Financial Forum</li>
+                            <li><a data-th-href="@{/analysis}">Market Analysis</a></li>
+                            <li><a data-th-href="@{/analysis}">Rumors Ongoing</a></li>
+                            <li><a data-th-href="@{/analysis}">The Top-10</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Book Exchange</li>
+                            <li><a data-th-href="@{/sharedBooks}">Available Now</a></li>
+                            <li><a data-th-href="@{/bookComments}">Book Comments</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-th-href="@{/accounts}">Contact Us</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a data-th-href="@{/login}"><span class="glyphicon glyphicon-king" aria-hidden="true"></span>Log In</a></li>
+                    <li><a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-pawn" aria-hidden="true"></span>Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-2">
+                    <img data-th-src="@{/images/logo.png}" />
+                </div>
+                <div class="col-xs-12 col-sm-10">
+                    <h1>BBanker</h1>
+                    <p>since 2017</p>
+                    <p>In BBanker, we redefined the way of managing personal property.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="row row-content2">
+                <div class="col-xs-6 col-sm-3">
+                    <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-education" aria-hidden="true"></span>Finance Academy</a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>Exchange Books</a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>Professional Community</a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>Share Opinions</a>
+                </div>
+            </div>
+            <div class="row row-content1">
+                <div class="col-xs-6 col-sm-3">
+                    <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Financial Solution</a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>Property Management</a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>Market Analysis</a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Online Consultant</a>
+                </div>
+            </div>
+        </div>
+        <div class="row row-content1">
+            <div class="col-xs-12">
+                <img data-th-src="@{/images/direc.png}" />
+            </div>
+        </div>
+    </div>
+    <footer>
+        <hr />
+        <div class="container">
+            <div class="row row-footer">
+                <div class="col-xs-12">
+                    <p>© Copyright 2017 BBanker</p>
+                </div>
+            </div>
+        </div>
+    </footer>
     </body>
 </html>
