@@ -35,20 +35,20 @@ public class FullStackWebApplication {
         repository.save(new Account(2L, 500, "PNC", AccountType.Deposit));
         repository.save(new Account(3L, 30000, "Cash Flow", AccountType.Cash));
 
-        AnalysisRepository repository2 = ctx.getBean(AnalysisRepository.class);
-        repository2.save(new Analysis(1L, AnalysisType.Stock, "Apple will increase by 5%."));
-        repository2.save(new Analysis(2L, AnalysisType.Stock, "Microsoft will be the champion."));
-        repository2.save(new Analysis(3L, AnalysisType.Stock, "Blackberry is breaking up"));
+        AnalysisRepository Arepository = ctx.getBean(AnalysisRepository.class);
+        Arepository.save(new Analysis(1L, AnalysisType.Stock, "Apple will increase by 5%."));
+        Arepository.save(new Analysis(2L, AnalysisType.Stock, "Microsoft will be the champion."));
+        Arepository.save(new Analysis(3L, AnalysisType.Stock, "Blackberry is breaking up"));
 
-        SharedBooksRepository repository3 = ctx.getBean(SharedBooksRepository.class);
-        repository3.save(new SharedBook(1L, "Future Finance", "Jack Danny","1.2", BookStatus.Available));
-        repository3.save(new SharedBook(2L, "Modern Economics", "David France","1.1", BookStatus.Exchanged));
-        repository3.save(new SharedBook(3L, "Financial Risks", "Kate Baron", "1.2", BookStatus.NotFinishYet));
+        SharedBooksRepository Srepository = ctx.getBean(SharedBooksRepository.class);
+        Srepository.save(new SharedBook(1L, "Future Finance", "Jack Danny","1.2", BookStatus.Available));
+        Srepository.save(new SharedBook(2L, "Modern Economics", "David France","1.1", BookStatus.Exchanged));
+        Srepository.save(new SharedBook(3L, "Financial Risks", "Kate Baron", "1.2", BookStatus.NotFinishYet));
 
-        BookCommentsRepository repository4 = ctx.getBean(BookCommentsRepository.class);
-        repository4.save(new BookComment(1L,"Future Finance", "Jack Danny","1.2", BookRate.Average, "Just so so."));
-        repository4.save(new BookComment(2L, "Modern Economics", "David France","1.1", BookRate.Bad, "Really bad."));
-        repository4.save(new BookComment(3L, "Financial Risks", "Kate Baron", "1.2", BookRate.FinancialLegend, "Like it."));
+        BookCommentsRepository Brepository = ctx.getBean(BookCommentsRepository.class);
+        Brepository.save(new BookComment(1L,"Future Finance", "Jack Danny","1.2", BookRate.Average, "Just so so."));
+        Brepository.save(new BookComment(2L, "Modern Economics", "David France","1.1", BookRate.Bad, "Really bad."));
+        Brepository.save(new BookComment(3L, "Financial Risks", "Kate Baron", "1.2", BookRate.FinancialLegend, "Like it."));
     }
 }
 //    @Bean
