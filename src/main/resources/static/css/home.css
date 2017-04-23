@@ -4,16 +4,41 @@
     background-image: url('../images/header.png');
     background-position: center;
     background-size: cover;
-    color:#DDDDDD;
+    color: #DDDDDD;
 }
-.row-content1{
-  text-align: left;
+.jumbotron-login {
+    padding:70px 30px 70px 30px;
+    margin:0px auto;
+    background-image: url('../images/login.png');
+    background-position: center;
+    background-size: contain;
+}
+.jumbotron-associate {
+    padding:70px 30px 70px 30px;
+    margin:0px auto;
+    background-image: url('../images/land.png');
+    background-position: center;
+    background-size: contain;
+}
+.row-content4{
+    text-align: left;
+    min-height: 25px;
+}
+.row-content3{
+  text-align: center;
   margin:0px auto;
+  border-bottom: 1px ridge;
 }
 .row-content2{
   text-align: left;
   margin:0px auto;
   border-bottom: 1px ridge;
+}
+.row-content1{
+  text-align: center;
+}
+footer{
+    background-color: #DDDDDD;
 }
 .row-footer{
   text-align: center;
@@ -24,4 +49,7 @@ img {
 body{
     padding:50px 0px 0px 0px;
     z-index:0;
+}
+.media{
+    padding:40px 10px;
 }

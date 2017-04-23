@@ -6,6 +6,13 @@ The format is based on [Keep a Change Log](http://keepachangelog.com/).
 ## [unreleased]
 ### Added
 
+## [v1.5] - 2017-04-22
+### Added
+- Change security configure.
+- Remove feature "strategy".
+- All pages polished with BootStrap and FontAwesome.
+- Store instance records in the database.
+
 ## [v1.4] - 2017-03-25
 ### Added
 - Create 5 more entities.
@@ -44,7 +51,8 @@ The format is based on [Keep a Change Log](http://keepachangelog.com/).
 - Configured developer workspace.
 - Deployed to Heroku.
 
-[unreleased]: https://github.com/infsci2560sp17/full-stack-web-DukeCode/compare/v1.4...head
+[unreleased]: https://github.com/infsci2560sp17/full-stack-web-DukeCode/compare/v1.5...head
+[v1.5]: https://github.com/infsci2560sp17/full-stack-web-DukeCode/compare/v1.4...v1.5
 [v1.4]: https://github.com/infsci2560sp17/full-stack-web-DukeCode/compare/v1.3...v1.4
 [v1.3]: https://github.com/infsci2560sp17/full-stack-web-DukeCode/compare/v1.2...v1.3
 [v1.2]: https://github.com/infsci2560sp17/full-stack-web-DukeCode/compare/v1.1...v1.2

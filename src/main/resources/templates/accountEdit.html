@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <title>Update Property</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" data-th-href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" />
+    <script data-th-src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js}"></script>
+    <script data-th-src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+    <link rel="stylesheet" data-th-href="@{/css/home.css}" />
+    <link rel="stylesheet" data-th-href="@{/css/font-awesome.css}" />
+    <link rel="stylesheet" data-th-href="@{/css/bootstrap-social.css}" />
+    <link rel="stylesheet" data-th-href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css}" />
+
+</head>
+<body>
+Edit Property<br />
+<form data-th-action="@{/accounts/edit/{id}(id=${account.id})}" data-th-object="${account}" data-th-method="put" role="form">
+    Id: <span data-th-utext="${account.id}" /><br />
+    Amount: <input type="number" name="amount" data-th-value="${account.amount}" /><br />
+    Provider: <input type="text" name="provider" data-th-value="${account.provider}" /><br />
+    Account Type:<br />
+    <div data-th-each="elem: ${T(edu.infsci2560.models.Account.AccountType).values()}">
+        <input type="radio"
+               data-th-name="accountType"
+               data-th-value="${elem.name()}"
+               data-th-checked="${elem} eq ${T(edu.infsci2560.models.Account.AccountType).valueOf(account.accountType)}">
+        <span data-th-utext="${elem.name()}" />
+        </input>
+    </div>
+    <input type="submit" value="Update Property"/><br />
+</form>
+<footer>
+    <hr />
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8">
+                <h4>Our Address</h4>
+                <address>
+                    4200 Fifth Aveue Pittsburgh PA 15260 <br />
+                    United States<br />
+                    <i class="fa fa-phone"></i> +1 412320xxxx<br />
+                    <i class="fa fa-envelope"></i><a date-th-href="@{mailto: jdai423@gmail.com}"> jdai423@gmail.com</a>
+                </address>
+            </div>
+            <div class="col-xs-12 col-sm-4" >
+                <div class="nav navbar-nav media">
+                    <a class="btn btn-social-icon btn-facebook" data-th-href="@{http://www.facebook.com}">
+                        <i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a class="btn btn-social-icon btn-twitter" data-th-href="@{http://www.twitter.com}">
+                        <i class="fa fa-twitter" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row row-footer">
+            <div class="col-xs-12">
+                <p>© Copyright 2017 BBanker</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

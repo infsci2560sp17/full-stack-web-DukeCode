@@ -1,55 +1,195 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Property Overview</title>
-    </head>
-    <body>
-        <h1 data-th-inline="text">[[${#httpServletRequest.remoteUser}]]'s Property</h1>
+<head>
+    <title>Property Overview</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" data-th-href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" />
+    <script data-th-src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js}"></script>
+    <script data-th-src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
 
-        <div>
-            <table style="border: 1px solid black">
-                <tr>
-                    <th>ID</th>
-                    <th>Amount</th>
-                    <th>Provider</th>
-                    <th>Type</th>
-                </tr>
-                <tr data-th-each="account : ${accounts}">
-                    <td data-th-text="${account.id}"></td>
-                    <td>$<span data-th-text="${#numbers.formatDecimal(account.amount, 1, 2)}"></span></td>
-                    <td data-th-text="${account.provider}"></td>
-                    <td data-th-text="${account.accountType}"></td>
-                </tr>
-            </table>
+    <link rel="stylesheet" data-th-href="@{/css/home.css}" />
+    <link rel="stylesheet" data-th-href="@{/css/font-awesome.css}" />
+    <link rel="stylesheet" data-th-href="@{/css/bootstrap-social.css}" />
+    <link rel="stylesheet" data-th-href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css}" />
+
+</head>
+    <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" data-th-href="@{/home}">BBanker</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a data-th-href="@{/home}"><i class="fa fa-bank" aria-hidden="true"></i> Home</a></li>
+                    <li><a data-th-href="@{/accounts}"><i class="fa fa-bold" aria-hidden="true"></i> About BBanker</a></li>
+                    <li class="dropdown">
+                        <a data-th-href="@{/accounts}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Menu <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">Financial Forum</li>
+                            <li><a data-th-href="@{/allAnalysis}">Market Analysis</a></li>
+                            <li><a data-th-href="@{/accounts}">Property Management</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Book Exchange</li>
+                            <li><a data-th-href="@{/allSharedBooks}">Shared Books</a></li>
+                            <li><a data-th-href="@{/allBookComments}">Book Comments</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-th-href="@{/accounts}"><i class="fa fa-paper-plane" aria-hidden="true"></i> Contact Us</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><span class="glyphicon glyphicon-king" aria-hidden="true"></span><form data-th-action="@{/logout}" method="post">
+                        <input type="submit" value="Sign Out"/></form></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="jumbotron jumbotron-associate">
+        <div class="container">
+            <div class="row">
+            </div>
+        </div>
+    </header>
+        <div class="container">
+            <div class="row">
+                <h2 data-th-inline="text">Welcome, [[${#httpServletRequest.remoteUser}]]</h2>
+            </div>
+            <div class="row">
+                <div class="row row-content2">
+                    <div class="col-xs-6 col-sm-2">
+                        <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>Property Management</a>
+                    </div>
+                    <div class="col-xs-6 col-sm-2">
+                        <a data-th-href="@{/allAnalysis}"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>Market Analysis</a>
+                    </div>
+                    <div class="col-xs-6 col-sm-2">
+                        <a data-th-href="@{/files}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Upload Portfolio</a>
+                    </div>
+                    <div class="col-xs-6 col-sm-2">
+                        <a data-th-href="@{/allSharedBooks}"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>Shared Books</a>
+                    </div>
+                    <div class="col-xs-6 col-sm-2">
+                        <a data-th-href="@{/allBookComments}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Book Comments</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="row-content1">Property Overview</h3>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th>Property ID</th>
+                                <th>Property Value</th>
+                                <th>Provider</th>
+                                <th>Property Type</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr data-th-each="account : ${accounts}">
+                                <td data-th-text="${account.id}"></td>
+                                <td>$<span data-th-text="${#numbers.formatDecimal(account.amount, 1, 2)}"></span></td>
+                                <td data-th-text="${account.provider}"></td>
+                                <td data-th-text="${account.accountType}"></td>
+                                <td><a data-th-href="@{/accounts/edit/{id}(id=${account.id})}">edit</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container row-content1">
+            <form data-th-action="@{/accounts/add}" name="addAccountForm" method="post">
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <h3>Add New Property Below</h3>
+                    </div>
+                    <label for="value" class="col-xs-4 col-sm-2 col-form-label"><i class="fa fa-dollar" aria-hidden="true"></i> Property Value</label>
+                    <div class="col-xs-8 col-sm-2">
+                        <input type="number" name="amount" placeholder="Property Value" class="form-control" id="value"/>
+                    </div>
+                    <div class="col-xs-0 col-sm-2">
+                    </div>
+                    <label for="provider" class="col-xs-4 col-sm-2 col-form-label"><i class="fa fa-group" aria-hidden="true"></i> Provider</label>
+                    <div class="col-xs-8 col-sm-2">
+                        <input type="text" name="provider" placeholder="Property Provider" class="form-control" id="provider"/>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="btn btn-secondary col-sm-4">
+                            <input type="submit" value="Add Property"/>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-12 row-content4">
+                    <h5>Please Select Property Type</h5>
+                </div>
+                <div class="form-group row-content4">
+                    <div class="col-sm-3">
+                        <input type="radio" name="accountType" value="Unknown" checked="checked" /> <i class="fa fa-question-circle-o" aria-hidden="true"></i> Unknown
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="radio" name="accountType" value="Deposit" /> <i class="fa fa-credit-card-alt" aria-hidden="true"></i> Deposit
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="radio" name="accountType" value="Stock" /> <i class="fa fa-line-chart" aria-hidden="true"></i> Stock
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="radio" name="accountType" value="Cash" /> <i class="fa fa-money" aria-hidden="true"></i> Cash
+                    </div>
+                </div>
+                <div class="form-group row-content4">
+                    <div class="col-sm-3">
+                        <input type="radio" name="accountType" value="Loan" /> <i class="fa fa-minus-square" aria-hidden="true"></i> Loan
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="radio" name="accountType" value="PreciousMetal" /> <i class="fa fa-cubes" aria-hidden="true"></i> Precious Metal
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="radio" name="accountType" value="RealEstate" /> <i class="fa fa-home" aria-hidden="true"></i> Real Estate
+                    </div>
+                </div>
+            </form>
         </div>
 
-        <hr />
-        New Property<br />
-        <form data-th-action="@{/accounts/add}" name="addAccountForm" method="post">
-            Amount: <input type="number" name="title" /><br />
-            Provider: <input type="text" name="title" /><br />
-            Account Type:<br />
-            <input type="radio" name="accountType" value="Unknown" checked="checked" /> Unknown<br />
-            <input type="radio" name="accountType" value="Deposit" /> Deposit<br />
-            <input type="radio" name="accountType" value="Cash" /> Cash<br />
-            <input type="radio" name="accountType" value="Loan" /> Loan<br />
-            <input type="radio" name="accountType" value="Stock" /> Stock<br />
-            <input type="radio" name="accountType" value="PreciousMetal" /> Precious Metal<br />
-            <input type="radio" name="accountType" value="RealEstate" /> Real Estate<br />
-            <input type="submit" value="Add Property"/>
-        </form>
 
-        <hr />
-            <a data-th-href="@{/books}">Check Your Books</a>
-        <hr />
-
-        <hr />
-            <a data-th-href="@{/files}">Upload a File</a>
-        <hr />
-
-        <hr />
-        <form data-th-action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
+        <footer>
+            <hr />
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8">
+                        <h4>Our Address</h4>
+                        <address>
+                            4200 Fifth Aveue Pittsburgh PA 15260 <br />
+                            United States<br />
+                            <i class="fa fa-phone"></i> +1 412320xxxx<br />
+                            <i class="fa fa-envelope"></i><a date-th-href="@{mailto: jdai423@gmail.com}"> jdai423@gmail.com</a>
+                        </address>
+                    </div>
+                    <div class="col-xs-12 col-sm-4" >
+                        <div class="nav navbar-nav media">
+                            <a class="btn btn-social-icon btn-facebook" data-th-href="@{http://www.facebook.com}">
+                                <i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a class="btn btn-social-icon btn-twitter" data-th-href="@{http://www.twitter.com}">
+                                <i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-footer">
+                    <div class="col-xs-12">
+                        <p>© Copyright 2017 BBanker</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>

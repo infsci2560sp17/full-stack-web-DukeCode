@@ -9,8 +9,9 @@
         <script data-th-src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
 
         <link rel="stylesheet" data-th-href="@{/css/home.css}" />
-        <link rel="stylesheet" data-th-href="@{/css/font-awesome.min.css}" />
+        <link rel="stylesheet" data-th-href="@{/css/font-awesome.css}" />
         <link rel="stylesheet" data-th-href="@{/css/bootstrap-social.css}" />
+        <link rel="stylesheet" data-th-href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css}" />
     </head>
     <body>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -26,27 +27,26 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a data-th-href="@{/home}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-                    <li><a data-th-href="@{/accounts}">About BBanker</a></li>
+                    <li class="active"><a data-th-href="@{/home}"><i class="fa fa-bank" aria-hidden="true"></i> Home</a></li>
+                    <li><a data-th-href="@{/accounts}"><i class="fa fa-bold" aria-hidden="true"></i> About BBanker</a></li>
                     <li class="dropdown">
                         <a data-th-href="@{/accounts}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             Menu <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-header">Financial Forum</li>
-                            <li><a data-th-href="@{/analysis}">Market Analysis</a></li>
-                            <li><a data-th-href="@{/analysis}">Rumors Ongoing</a></li>
-                            <li><a data-th-href="@{/analysis}">The Top-10</a></li>
+                            <li><a data-th-href="@{/allAnalysis}">Market Analysis</a></li>
+                            <li><a data-th-href="@{/accounts}">Property Management</a></li>
                             <li role="separator" class="divider"></li>
                             <li class="dropdown-header">Book Exchange</li>
-                            <li><a data-th-href="@{/sharedBooks}">Available Now</a></li>
-                            <li><a data-th-href="@{/bookComments}">Book Comments</a></li>
+                            <li><a data-th-href="@{/allSharedBooks}">Shared Books</a></li>
+                            <li><a data-th-href="@{/allBookComments}">Book Comments</a></li>
                         </ul>
                     </li>
-                    <li><a data-th-href="@{/accounts}">Contact Us</a></li>
+                    <li><a data-th-href="@{/accounts}"><i class="fa fa-paper-plane" aria-hidden="true"></i> Contact Us</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a data-th-href="@{/login}"><span class="glyphicon glyphicon-king" aria-hidden="true"></span>Log In</a></li>
-                    <li><a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-pawn" aria-hidden="true"></span>Register</a></li>
+                    <li><span class="glyphicon glyphicon-king" aria-hidden="true"></span><form data-th-action="@{/logout}" method="post">
+                        <input type="submit" value="Sign Out"/></form></li>
                 </ul>
             </div>
         </div>
@@ -55,7 +55,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-2">
-                    <img data-th-src="@{/images/logo.png}" />
+                    <a data-th-href="@{/home}"><img data-th-src="@{/images/logo.png}" /></a>
                 </div>
                 <div class="col-xs-12 col-sm-10">
                     <h1>BBanker</h1>
@@ -67,44 +67,55 @@
     </header>
     <div class="container">
         <div class="row">
+            <h2 data-th-inline="text">Welcome, [[${#httpServletRequest.remoteUser}]]</h2>
+        </div>
+        <div class="row">
             <div class="row row-content2">
-                <div class="col-xs-6 col-sm-3">
-                    <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-education" aria-hidden="true"></span>Finance Academy</a>
+                <div class="col-xs-6 col-sm-2">
+                    <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Property Management</a>
                 </div>
-                <div class="col-xs-6 col-sm-3">
-                    <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>Exchange Books</a>
+                <div class="col-xs-6 col-sm-2">
+                    <a data-th-href="@{/allAnalysis}"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Market Analysis</a>
                 </div>
-                <div class="col-xs-6 col-sm-3">
-                    <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>Professional Community</a>
+                <div class="col-xs-6 col-sm-2">
+                    <a data-th-href="@{/files}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Upload Portfolio</a>
                 </div>
-                <div class="col-xs-6 col-sm-3">
-                    <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>Share Opinions</a>
+                <div class="col-xs-6 col-sm-2">
+                    <a data-th-href="@{/allSharedBooks}"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>Shared Books</a>
                 </div>
-            </div>
-            <div class="row row-content1">
-                <div class="col-xs-6 col-sm-3">
-                    <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Financial Solution</a>
-                </div>
-                <div class="col-xs-6 col-sm-3">
-                    <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>Property Management</a>
-                </div>
-                <div class="col-xs-6 col-sm-3">
-                    <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>Market Analysis</a>
-                </div>
-                <div class="col-xs-6 col-sm-3">
-                    <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Online Consultant</a>
+                <div class="col-xs-6 col-sm-2">
+                    <a data-th-href="@{/allBookComments}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Book Comments</a>
                 </div>
             </div>
         </div>
         <div class="row row-content1">
             <div class="col-xs-12">
-                <img data-th-src="@{/images/direc.png}" />
+                <a data-th-href="@{/login}"><img data-th-src="@{/images/direc.png}" /></a>
             </div>
         </div>
     </div>
     <footer>
         <hr />
         <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-8">
+                    <h4>Our Address</h4>
+                    <address>
+                        4200 Fifth Aveue Pittsburgh PA 15260 <br />
+                        United States<br />
+                        <i class="fa fa-phone"></i> +1 412320xxxx<br />
+                        <i class="fa fa-envelope"></i><a date-th-href="@{mailto: jdai423@gmail.com}"> jdai423@gmail.com</a>
+                    </address>
+                </div>
+                <div class="col-xs-12 col-sm-4" >
+                    <div class="nav navbar-nav media">
+                        <a class="btn btn-social-icon btn-facebook" data-th-href="@{http://www.facebook.com}">
+                            <i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a class="btn btn-social-icon btn-twitter" data-th-href="@{http://www.twitter.com}">
+                            <i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
             <div class="row row-footer">
                 <div class="col-xs-12">
                     <p>© Copyright 2017 BBanker</p>
