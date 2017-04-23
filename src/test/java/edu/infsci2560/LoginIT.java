@@ -49,40 +49,40 @@ import org.springframework.test.context.ActiveProfiles;
 @ActiveProfiles(profiles = { "test" })
 public class LoginIT {
 
-	@Autowired
-	private TestRestTemplate restTemplate;
+    @Autowired
+    private TestRestTemplate restTemplate;
 
-	@LocalServerPort
-	private int port;
+    @LocalServerPort
+    private int port;
 
-	@Test
-	public void testLoginPage() throws Exception {
-		HttpHeaders headers = new HttpHeaders();
-		headers.setAccept(Arrays.asList(MediaType.TEXT_HTML));
-                
-		ResponseEntity<String> entity = this.restTemplate.exchange("/login", 
-			HttpMethod.GET, new HttpEntity<>(headers), String.class);
-		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
-		assertThat(entity.getBody()).contains("_csrf");
-	}
-        
-        @Test
-	public void testLoginPageValid() throws Exception {
-		HttpHeaders headers = new HttpHeaders();
-		headers.setAccept(Arrays.asList(MediaType.TEXT_HTML));
-                
-		ResponseEntity<String> entity = this.restTemplate.exchange("/login", 
-			HttpMethod.GET, new HttpEntity<>(headers), String.class);
-		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
-                PageHtmlValidator.validatePage(entity.getBody());
-	}
+    @Test
+    public void testLoginPage() throws Exception {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(Arrays.asList(MediaType.TEXT_HTML));
 
-	@Test
-	public void testLogin() throws Exception {		
-		ResponseEntity<String> entity = LoginHelper.login(this.restTemplate, "/login", "user", "password");
-                
-		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.FOUND);
-		assertThat(entity.getHeaders().getLocation().toString()).endsWith(this.port + "/");
-		assertThat(entity.getHeaders().get("Set-Cookie")).isNotNull();
-	}		
+        ResponseEntity<String> entity = this.restTemplate.exchange("/login",
+                HttpMethod.GET, new HttpEntity<>(headers), String.class);
+        assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(entity.getBody()).contains("_csrf");
+    }
+
+    @Test
+    public void testLoginPageValid() throws Exception {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(Arrays.asList(MediaType.TEXT_HTML));
+
+        ResponseEntity<String> entity = this.restTemplate.exchange("/login",
+                HttpMethod.GET, new HttpEntity<>(headers), String.class);
+        assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        PageHtmlValidator.validatePage(entity.getBody());
+    }
+
+    @Test
+    public void testLogin() throws Exception {
+        ResponseEntity<String> entity = LoginHelper.login(this.restTemplate, "/login", "user", "password");
+
+        assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.FOUND);
+        assertThat(entity.getHeaders().getLocation().toString()).endsWith(this.port + "/");
+        assertThat(entity.getHeaders().get("Set-Cookie")).isNotNull();
+    }
 }
