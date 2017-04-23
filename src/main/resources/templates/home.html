@@ -67,6 +67,9 @@
     </header>
     <div class="container">
         <div class="row">
+            <h2 data-th-inline="text">Welcome, [[${#httpServletRequest.remoteUser}]]</h2>
+        </div>
+        <div class="row">
             <div class="row row-content2">
                 <div class="col-xs-6 col-sm-2">
                     <a data-th-href="@{/accounts}"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Property Management</a>
